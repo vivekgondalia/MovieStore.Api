@@ -24,6 +24,8 @@ List<Movie> movies = new()
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/movies", () => movies);
+
+app.MapGet("/movies/{id}", (int id) => movies.Find(movie => movie.Id == id));
 
 app.Run();

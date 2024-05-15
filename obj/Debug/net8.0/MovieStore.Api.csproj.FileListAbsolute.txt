@@ -23,3 +23,4 @@ C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\
 C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\obj\Debug\net8.0\MovieStore.Api.pdb
 C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\obj\Debug\net8.0\MovieStore.Api.genruntimeconfig.cache
 C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\obj\Debug\net8.0\ref\MovieStore.Api.dll
+C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\obj\Debug\net8.0\MovieStore.Api.sourcelink.json
