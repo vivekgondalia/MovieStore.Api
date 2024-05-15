@@ -1,6 +1,8 @@
 
 using MovieStore.Api.Entities;
 
+const string GetMovieEndpointName = "GetMovie";
+
 List<Movie> movies = new()
 {
     new Movie()
@@ -35,6 +37,16 @@ app.MapGet("/movies/{id}", (int id) =>
         return Results.NotFound();
 
     return Results.Ok(movie);
+})
+.WithName(GetMovieEndpointName);
+
+app.MapPost("/movies", (Movie newMovie) =>
+{
+    newMovie.Id = movies.Max(movie => movie.Id) + 1;
+    movies.Add(newMovie);
+
+    //location header in the RESPONSE
+    return Results.CreatedAtRoute(GetMovieEndpointName, new { id = newMovie.Id }, newMovie);
 });
 
 app.Run();
