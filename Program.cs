@@ -26,9 +26,11 @@ List<Movie> movies = new()
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/movies", () => movies);
+var group = app.MapGroup("/movies");
 
-app.MapGet("/movies/{id}", (int id) =>
+group.MapGet("", () => movies);
+
+group.MapGet("/{id}", (int id) =>
 {
 
     Movie? movie = movies.Find(movie => movie.Id == id);
@@ -40,7 +42,7 @@ app.MapGet("/movies/{id}", (int id) =>
 })
 .WithName(GetMovieEndpointName);
 
-app.MapPost("/movies", (Movie newMovie) =>
+group.MapPost("", (Movie newMovie) =>
 {
     newMovie.Id = movies.Max(movie => movie.Id) + 1;
     movies.Add(newMovie);
@@ -49,7 +51,7 @@ app.MapPost("/movies", (Movie newMovie) =>
     return Results.CreatedAtRoute(GetMovieEndpointName, new { id = newMovie.Id }, newMovie);
 });
 
-app.MapPut("/movies/{id}", (int id, Movie updatedMovie) =>
+group.MapPut("/{id}", (int id, Movie updatedMovie) =>
 {
     Movie? existingMovie = movies.Find(movie => movie.Id == id);
 
@@ -64,7 +66,7 @@ app.MapPut("/movies/{id}", (int id, Movie updatedMovie) =>
     return Results.NoContent();
 });
 
-app.MapDelete("/movies/{id}", (int id) =>
+group.MapDelete("/{id}", (int id) =>
 {
     Movie? movie = movies.Find(movie => movie.Id == id);
 
