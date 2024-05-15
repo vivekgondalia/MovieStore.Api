@@ -24,3 +24,9 @@ C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\
 C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\obj\Debug\net8.0\MovieStore.Api.genruntimeconfig.cache
 C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\obj\Debug\net8.0\ref\MovieStore.Api.dll
 C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\obj\Debug\net8.0\MovieStore.Api.sourcelink.json
+C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\bin\Debug\net8.0\MinimalApis.Extensions.dll
+C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\bin\Debug\net8.0\MiniValidation.dll
+C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\obj\Debug\net8.0\MovieStore.Api.csproj.AssemblyReference.cache
+C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\obj\Debug\net8.0\MovieStore.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\obj\Debug\net8.0\MovieSto.0CC2933A.Up2Date

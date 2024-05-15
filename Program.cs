@@ -26,7 +26,8 @@ List<Movie> movies = new()
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-var group = app.MapGroup("/movies");
+var group = app.MapGroup("/movies")
+                .WithParameterValidation();
 
 group.MapGet("", () => movies);
 

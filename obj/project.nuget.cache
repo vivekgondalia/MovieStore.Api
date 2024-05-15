@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "rgBQgleMwR1f5Y3VVCCcz4sdjVpUnKX6rM1Fr1OPNuPGCuX/Cq0os9HUbK6yQ9sKq3urO1DGV7Wr6USJxDSLSA==",
+  "dgSpecHash": "sQPbsTDr9OPHjKGn8qONnvfTCrUaDCuM/TZ0Pv4viyiBuAq/+pgmiE8jquMYZMOAhxAX0iQY5nk7iMLdLKysRQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\Documents\\code\\dot net\\beginner\\MovieStore\\MovieStore.Api\\MovieStore.Api.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\minimalapis.extensions\\0.11.0\\minimalapis.extensions.0.11.0.nupkg.sha512",
+    "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\minivalidation\\0.8.0\\minivalidation.0.8.0.nupkg.sha512"
+  ],
   "logs": []
 }
