@@ -49,4 +49,19 @@ app.MapPost("/movies", (Movie newMovie) =>
     return Results.CreatedAtRoute(GetMovieEndpointName, new { id = newMovie.Id }, newMovie);
 });
 
+app.MapPut("/movies/{id}", (int id, Movie updatedMovie) =>
+{
+    Movie? existingMovie = movies.Find(movie => movie.Id == id);
+
+    if (existingMovie is null)
+        return Results.NotFound();
+
+    existingMovie.Name = updatedMovie.Name;
+    existingMovie.Genre = updatedMovie.Genre;
+    existingMovie.ReleaseDate = updatedMovie.ReleaseDate;
+    existingMovie.ImageUri = updatedMovie.ImageUri;
+
+    return Results.NoContent();
+});
+
 app.Run();
