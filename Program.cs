@@ -10,6 +10,7 @@ List<Movie> movies = new()
         Id=1,
         Name="The Dark Knight",
         Genre="Action",
+        NumberOfCopies=3,
         ReleaseDate= new DateTime(2008, 01, 01),
         ImageUri = "https://placehold.co/100"
     },
@@ -18,6 +19,7 @@ List<Movie> movies = new()
         Id=2,
         Name="12 Angry Men",
         Genre="Drama",
+        NumberOfCopies=1,
         ReleaseDate= new DateTime(1960, 01, 01),
         ImageUri = "https://placehold.co/100"
     }
