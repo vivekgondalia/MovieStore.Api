@@ -64,4 +64,14 @@ app.MapPut("/movies/{id}", (int id, Movie updatedMovie) =>
     return Results.NoContent();
 });
 
+app.MapDelete("/movies/{id}", (int id) =>
+{
+    Movie? movie = movies.Find(movie => movie.Id == id);
+
+    if (movie is null)
+        return Results.NotFound();
+
+    return Results.NoContent();
+});
+
 app.Run();
