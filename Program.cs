@@ -26,6 +26,15 @@ var app = builder.Build();
 
 app.MapGet("/movies", () => movies);
 
-app.MapGet("/movies/{id}", (int id) => movies.Find(movie => movie.Id == id));
+app.MapGet("/movies/{id}", (int id) =>
+{
+
+    Movie? movie = movies.Find(movie => movie.Id == id);
+
+    if (movie is null)
+        return Results.NotFound();
+
+    return Results.Ok(movie);
+});
 
 app.Run();
