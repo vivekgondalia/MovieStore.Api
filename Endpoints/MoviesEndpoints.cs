@@ -8,8 +8,6 @@ public static class MoviesEndpoints
 {
     const string GetMovieEndpointName = "GetMovie";
 
-
-
     public static RouteGroupBuilder MapMoviesEndpoints(this IEndpointRouteBuilder routes)
     {
         InMemMoviesRepository repository = new();

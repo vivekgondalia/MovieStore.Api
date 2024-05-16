@@ -3,7 +3,7 @@ using MovieStore.Api.Entities;
 
 namespace MovieStore.Api.Repositories;
 
-public class InMemMoviesRepository
+public class InMemMoviesRepository : IMoviesRepository
 {
     private readonly List<Movie> movies = new()
     {
