@@ -1,4 +1,5 @@
 using MovieStore.Api.Entities;
+using MovieStore.Api.Repositories;
 
 namespace MovieStore.Api.Endpoints;
 
@@ -7,39 +8,34 @@ public static class MoviesEndpoints
 {
     const string GetMovieEndpointName = "GetMovie";
 
-    
+
 
     public static RouteGroupBuilder MapMoviesEndpoints(this IEndpointRouteBuilder routes)
     {
+        InMemMoviesRepository repository = new();
+
         var group = routes.MapGroup("/movies")
                 .WithParameterValidation();
 
-        group.MapGet("", () => movies);
+        group.MapGet("", () => repository.GetAll());
 
         group.MapGet("/{id}", (int id) =>
         {
-
-            Movie? movie = movies.Find(movie => movie.Id == id);
-
-            if (movie is null)
-                return Results.NotFound();
-
-            return Results.Ok(movie);
+            Movie? movie = repository.GetById(id);
+            return movie is not null ? Results.Ok(movie) : Results.NotFound();
         })
         .WithName(GetMovieEndpointName);
 
         group.MapPost("", (Movie newMovie) =>
         {
-            newMovie.Id = movies.Max(movie => movie.Id) + 1;
-            movies.Add(newMovie);
-
+            repository.Create(newMovie);
             //location header in the RESPONSE
             return Results.CreatedAtRoute(GetMovieEndpointName, new { id = newMovie.Id }, newMovie);
         });
 
         group.MapPut("/{id}", (int id, Movie updatedMovie) =>
         {
-            Movie? existingMovie = movies.Find(movie => movie.Id == id);
+            Movie? existingMovie = repository.GetById(id);
 
             if (existingMovie is null)
                 return Results.NotFound();
@@ -49,16 +45,18 @@ public static class MoviesEndpoints
             existingMovie.ReleaseDate = updatedMovie.ReleaseDate;
             existingMovie.ImageUri = updatedMovie.ImageUri;
 
+            repository.Update(existingMovie);
             return Results.NoContent();
         });
 
         group.MapDelete("/{id}", (int id) =>
         {
-            Movie? movie = movies.Find(movie => movie.Id == id);
+            Movie? movie = repository.GetById(id);
 
             if (movie is null)
                 return Results.NotFound();
 
+            repository.Delete(id);
             return Results.NoContent();
         });
 
