@@ -10,28 +10,26 @@ public static class MoviesEndpoints
 
     public static RouteGroupBuilder MapMoviesEndpoints(this IEndpointRouteBuilder routes)
     {
-        InMemMoviesRepository repository = new();
-
         var group = routes.MapGroup("/movies")
                 .WithParameterValidation();
 
-        group.MapGet("", () => repository.GetAll());
+        group.MapGet("", (IMoviesRepository repository) => repository.GetAll());
 
-        group.MapGet("/{id}", (int id) =>
+        group.MapGet("/{id}", (IMoviesRepository repository, int id) =>
         {
             Movie? movie = repository.GetById(id);
             return movie is not null ? Results.Ok(movie) : Results.NotFound();
         })
         .WithName(GetMovieEndpointName);
 
-        group.MapPost("", (Movie newMovie) =>
+        group.MapPost("", (IMoviesRepository repository, Movie newMovie) =>
         {
             repository.Create(newMovie);
             //location header in the RESPONSE
             return Results.CreatedAtRoute(GetMovieEndpointName, new { id = newMovie.Id }, newMovie);
         });
 
-        group.MapPut("/{id}", (int id, Movie updatedMovie) =>
+        group.MapPut("/{id}", (IMoviesRepository repository, int id, Movie updatedMovie) =>
         {
             Movie? existingMovie = repository.GetById(id);
 
@@ -47,7 +45,7 @@ public static class MoviesEndpoints
             return Results.NoContent();
         });
 
-        group.MapDelete("/{id}", (int id) =>
+        group.MapDelete("/{id}", (IMoviesRepository repository, int id) =>
         {
             Movie? movie = repository.GetById(id);
 
