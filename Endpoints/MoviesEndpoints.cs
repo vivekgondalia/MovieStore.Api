@@ -7,27 +7,7 @@ public static class MoviesEndpoints
 {
     const string GetMovieEndpointName = "GetMovie";
 
-    static List<Movie> movies = new()
-    {
-        new Movie()
-        {
-            Id=1,
-            Name="The Dark Knight",
-            Genre="Action",
-            NumberOfCopies=3,
-            ReleaseDate= new DateTime(2008, 01, 01),
-            ImageUri = "https://placehold.co/100"
-        },
-        new Movie()
-        {
-            Id=2,
-            Name="12 Angry Men",
-            Genre="Drama",
-            NumberOfCopies=1,
-            ReleaseDate= new DateTime(1960, 01, 01),
-            ImageUri = "https://placehold.co/100"
-        }
-    };
+    
 
     public static RouteGroupBuilder MapMoviesEndpoints(this IEndpointRouteBuilder routes)
     {
