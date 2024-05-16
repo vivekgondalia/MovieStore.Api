@@ -1,3 +1,4 @@
+using MovieStore.Api.Dtos;
 using MovieStore.Api.Entities;
 using MovieStore.Api.Repositories;
 
@@ -13,33 +14,44 @@ public static class MoviesEndpoints
         var group = routes.MapGroup("/movies")
                 .WithParameterValidation();
 
-        group.MapGet("", (IMoviesRepository repository) => repository.GetAll());
+        group.MapGet("", (IMoviesRepository repository) =>
+            repository.GetAll().Select(movie => movie.AsDto()));
 
         group.MapGet("/{id}", (IMoviesRepository repository, int id) =>
         {
             Movie? movie = repository.GetById(id);
-            return movie is not null ? Results.Ok(movie) : Results.NotFound();
+            return movie is not null ? Results.Ok(movie.AsDto()) : Results.NotFound();
         })
         .WithName(GetMovieEndpointName);
 
-        group.MapPost("", (IMoviesRepository repository, Movie newMovie) =>
+        group.MapPost("", (IMoviesRepository repository, CreateMovieDto newMovieDto) =>
         {
+            Movie newMovie = new()
+            {
+                Name = newMovieDto.Name,
+                Genre = newMovieDto.Genre,
+                NumberOfCopies = newMovieDto.NumberOfCopies,
+                ReleaseDate = newMovieDto.ReleaseDate,
+                ImageUri = newMovieDto.ImageUri
+            };
+
             repository.Create(newMovie);
             //location header in the RESPONSE
             return Results.CreatedAtRoute(GetMovieEndpointName, new { id = newMovie.Id }, newMovie);
         });
 
-        group.MapPut("/{id}", (IMoviesRepository repository, int id, Movie updatedMovie) =>
+        group.MapPut("/{id}", (IMoviesRepository repository, int id, UpdateMovieDto updatedMovieDto) =>
         {
             Movie? existingMovie = repository.GetById(id);
 
             if (existingMovie is null)
                 return Results.NotFound();
 
-            existingMovie.Name = updatedMovie.Name;
-            existingMovie.Genre = updatedMovie.Genre;
-            existingMovie.ReleaseDate = updatedMovie.ReleaseDate;
-            existingMovie.ImageUri = updatedMovie.ImageUri;
+            existingMovie.Name = updatedMovieDto.Name;
+            existingMovie.Genre = updatedMovieDto.Genre;
+            existingMovie.NumberOfCopies = updatedMovieDto.NumberOfCopies;
+            existingMovie.ReleaseDate = updatedMovieDto.ReleaseDate;
+            existingMovie.ImageUri = updatedMovieDto.ImageUri;
 
             repository.Update(existingMovie);
             return Results.NoContent();
