@@ -12,7 +12,7 @@ using MovieStore.Api.Data;
 namespace MovieStore.Api.Data.Migrations
 {
     [DbContext(typeof(MovieStoreContext))]
-    [Migration("20240517173244_InitialCreate")]
+    [Migration("20240517174450_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -49,7 +49,8 @@ namespace MovieStore.Api.Data.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal>("NumberOfCopies")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(5, 2)
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime2");
