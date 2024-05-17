@@ -13,6 +13,8 @@ builder.Services.AddDbContextPool<MovieStoreContext>(options => options.UseMySql
 
 var app = builder.Build();
 
+app.Services.InitializeDb();
+
 app.MapMoviesEndpoints();
 
 app.Run();
