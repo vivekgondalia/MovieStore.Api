@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cL6nFbtVOhzZVVZvc9zUmtD77XwaGJbQyCW0vpIwR8V2qAvLF2uvwzu1dNXFG3fz2BSy7HTiRGZoCTc05GdAjQ==",
+  "dgSpecHash": "jPUBrZOYBu7gpxVRRiATuvGcr086is6p80ksE9fPX9R/C4uH3EqP+6ib+8exnKSWbuzZbj08yIlrcBU6YW6R+g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\Documents\\code\\dot net\\beginner\\MovieStore\\MovieStore.Api\\MovieStore.Api.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,7 @@
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.5\\microsoft.entityframeworkcore.design.8.0.5.nupkg.sha512",
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.5\\microsoft.entityframeworkcore.relational.8.0.5.nupkg.sha512",
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\8.0.5\\microsoft.entityframeworkcore.sqlserver.8.0.5.nupkg.sha512",
+    "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\8.0.5\\microsoft.entityframeworkcore.tools.8.0.5.nupkg.sha512",
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0\\microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
@@ -48,6 +49,8 @@
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\minimalapis.extensions\\0.11.0\\minimalapis.extensions.0.11.0.nupkg.sha512",
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\minivalidation\\0.8.0\\minivalidation.0.8.0.nupkg.sha512",
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\mysqlconnector\\2.3.5\\mysqlconnector.2.3.5.nupkg.sha512",
+    "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\8.0.2\\pomelo.entityframeworkcore.mysql.8.0.2.nupkg.sha512",
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Vivek Gondalia.VGONDALIA-LT\\.nuget\\packages\\system.composition\\6.0.0\\system.composition.6.0.0.nupkg.sha512",

@@ -11,5 +11,5 @@ sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=$sa_password" -p 1433:1
 
 ```powershell
 $sa_password = "[SA PASSWORD HERE]"
-dotnet user-secrets set "ConnectionStrings:MovieStoreContext" "server=localhost;database=sql_movie_store;user=root;password=$sa_password;TrustServerCertificate=True"
+dotnet user-secrets set "ConnectionStrings:MovieStoreContext" "server=localhost;database=sql_movie_store;user=root;password=$sa_password;"
 ```
