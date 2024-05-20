@@ -1,16 +1,17 @@
 
-using Microsoft.EntityFrameworkCore;
 using MovieStore.Api.Data;
 using MovieStore.Api.Endpoints;
-using MovieStore.Api.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRepositories(builder.Configuration);
 
+builder.Services.AddAuthentication().AddJwtBearer();
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
-app.Services.InitializeDb();
+await app.Services.InitializeDbAsync();
 
-app.MapMoviesEndpoints();
+app.MapMoviesEndpoints().RequireAuthorization();
 
 app.Run();

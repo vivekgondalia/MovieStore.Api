@@ -13,32 +13,32 @@ namespace MovieStore.Api.Repositories
             this.dbContext = dbContext;
         }
 
-        public IEnumerable<Movie> GetAll()
+        public async Task<IEnumerable<Movie>> GetAllAsync()
         {
-            return dbContext.Movies.AsNoTracking().ToList();
+            return await dbContext.Movies.AsNoTracking().ToListAsync();
         }
 
-        public Movie? GetById(int id)
+        public async Task<Movie?> GetByIdAsync(int id)
         {
-            return dbContext.Movies.Find(id);
+            return await dbContext.Movies.FindAsync(id);
         }
 
-        public void Create(Movie newMovie)
+        public async Task CreateAsync(Movie newMovie)
         {
             dbContext.Movies.Add(newMovie);
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
-        public void Update(Movie updatedMovie)
+        public async Task UpdateAsync(Movie updatedMovie)
         {
             dbContext.Update(updatedMovie);
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            dbContext.Movies.Where(movie => movie.Id == id)
-                .ExecuteDelete();    
+            await dbContext.Movies.Where(movie => movie.Id == id)
+                .ExecuteDeleteAsync();
         }
 
     }

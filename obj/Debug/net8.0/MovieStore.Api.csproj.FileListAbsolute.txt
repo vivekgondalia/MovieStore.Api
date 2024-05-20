@@ -136,3 +136,4 @@ C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\
 C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\bin\Debug\net8.0\MySqlConnector.dll
 C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Vivek Gondalia.VGONDALIA-LT\Documents\code\dot net\beginner\MovieStore\MovieStore.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

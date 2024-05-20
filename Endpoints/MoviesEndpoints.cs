@@ -14,17 +14,17 @@ public static class MoviesEndpoints
         var group = routes.MapGroup("/movies")
                 .WithParameterValidation();
 
-        group.MapGet("", (IMoviesRepository repository) =>
-            repository.GetAll().Select(movie => movie.AsDto()));
+        group.MapGet("", async (IMoviesRepository repository) =>
+            (await repository.GetAllAsync()).Select(movie => movie.AsDto()));
 
-        group.MapGet("/{id}", (IMoviesRepository repository, int id) =>
+        group.MapGet("/{id}", async (IMoviesRepository repository, int id) =>
         {
-            Movie? movie = repository.GetById(id);
+            Movie? movie = await repository.GetByIdAsync(id);
             return movie is not null ? Results.Ok(movie.AsDto()) : Results.NotFound();
         })
         .WithName(GetMovieEndpointName);
 
-        group.MapPost("", (IMoviesRepository repository, CreateMovieDto newMovieDto) =>
+        group.MapPost("", async (IMoviesRepository repository, CreateMovieDto newMovieDto) =>
         {
             Movie newMovie = new()
             {
@@ -35,14 +35,14 @@ public static class MoviesEndpoints
                 ImageUri = newMovieDto.ImageUri
             };
 
-            repository.Create(newMovie);
+            await repository.CreateAsync(newMovie);
             //location header in the RESPONSE
             return Results.CreatedAtRoute(GetMovieEndpointName, new { id = newMovie.Id }, newMovie);
         });
 
-        group.MapPut("/{id}", (IMoviesRepository repository, int id, UpdateMovieDto updatedMovieDto) =>
+        group.MapPut("/{id}", async (IMoviesRepository repository, int id, UpdateMovieDto updatedMovieDto) =>
         {
-            Movie? existingMovie = repository.GetById(id);
+            Movie? existingMovie = await repository.GetByIdAsync(id);
 
             if (existingMovie is null)
                 return Results.NotFound();
@@ -53,18 +53,18 @@ public static class MoviesEndpoints
             existingMovie.ReleaseDate = updatedMovieDto.ReleaseDate;
             existingMovie.ImageUri = updatedMovieDto.ImageUri;
 
-            repository.Update(existingMovie);
+            await repository.UpdateAsync(existingMovie);
             return Results.NoContent();
         });
 
-        group.MapDelete("/{id}", (IMoviesRepository repository, int id) =>
+        group.MapDelete("/{id}", async (IMoviesRepository repository, int id) =>
         {
-            Movie? movie = repository.GetById(id);
+            Movie? movie = await repository.GetByIdAsync(id);
 
             if (movie is null)
                 return Results.NotFound();
 
-            repository.Delete(id);
+            await repository.DeleteAsync(id);
             return Results.NoContent();
         });
 

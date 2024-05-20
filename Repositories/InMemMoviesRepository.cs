@@ -27,31 +27,38 @@ public class InMemMoviesRepository : IMoviesRepository
         }
     };
 
-    public IEnumerable<Movie> GetAll()
+    public async Task<IEnumerable<Movie>> GetAllAsync()
     {
-        return movies;
+        //use FromResult() no need to wait as movies are in memory here
+        return await Task.FromResult(movies);
     }
 
-    public Movie? GetById(int id)
+    public async Task<Movie?> GetByIdAsync(int id)
     {
-        return movies.Find(movie => movie.Id == id);
+        return await Task.FromResult(movies.Find(movie => movie.Id == id));
     }
 
-    public void Create(Movie newMovie)
+    public async Task CreateAsync(Movie newMovie)
     {
         newMovie.Id = movies.Max(movie => movie.Id) + 1;
         movies.Add(newMovie);
+
+        await Task.CompletedTask;
     }
 
-    public void Update(Movie updatedMovie)
+    public async Task UpdateAsync(Movie updatedMovie)
     {
         var index = movies.FindIndex(movie => movie.Id == updatedMovie.Id);
         movies[index] = updatedMovie;
+
+        await Task.CompletedTask;
     }
 
-    public void Delete(int id)
+    public async Task DeleteAsync(int id)
     {
         var index = movies.FindIndex(movie => movie.Id == id);
         movies.RemoveAt(index);
+
+        await Task.CompletedTask;
     }
 }
