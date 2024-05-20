@@ -12,6 +12,8 @@ var app = builder.Build();
 
 await app.Services.InitializeDbAsync();
 
-app.MapMoviesEndpoints().RequireAuthorization();
+app.MapMoviesEndpoints().RequireAuthorization(policy => {
+    policy.RequireRole("admin");
+});
 
 app.Run();
